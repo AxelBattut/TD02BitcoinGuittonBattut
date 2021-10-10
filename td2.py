@@ -96,10 +96,11 @@ def mainprogram(argument):
       choixentropie = int(input())
       if(choixentropie == 1):
         #Partie1 Master Key
+        seed11="000102030405060708090a0b0c0d0e0f"
         seed = binascii.unhexlify("000102030405060708090a0b0c0d0e0f")  # Première chose, on genere une seed de caractères hexadécimaux de (taille 128 bits ici)
         I = hmac.new(b"Bitcoin seed", seed, hashlib.sha512).digest() #On génère ensuite I qui est le hash de notre seed à l’aide de la clé bitcoin “Bitcoin Seed”
         Il, Ir = I[:32], I[32:]  # On sépare I en deux séquences Gauche et Droite 
-        print("On a généré la seed suivante", seed)
+        print("On a généré la seed suivante", seed11)
         print("Notre HMAC est", I)
 
         # Partie 2 Master Key ; Serialization 
@@ -154,7 +155,7 @@ def mainprogram(argument):
         seed = binascii.unhexlify(seed1)  # Première chose, on genere une seed de caractères hexadécimaux de (taille 128 bits ici)
         I = hmac.new(b"Bitcoin seed", seed, hashlib.sha512).digest() #On génère ensuite I qui est le hash de notre seed à l’aide de la clé bitcoin “Bitcoin Seed”
         Il, Ir = I[:32], I[32:]  # On sépare I en deux séquences Gauche et Droite 
-        print("On a généré la seed suivante", seed)
+        print("On a généré la seed suivante", seed1)
         print("Notre HMAC est", I)
 
         # Partie 2 Master Key ; Serialization 
